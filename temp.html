@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temprature-Converter</title>
+    <style>
+      body {
+        background-image: url("https://images.squarespace-cdn.com/content/v1/61c4da8eb1b30a201b9669f2/e2e0e62f-0064-4f86-b9d8-5a55cb7110ca/Korembi-January-2024.jpg");
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3em;
+        font-family:Helvetica, sans-serif;
+        font-weight: 500;
+      }
+      .box{
+        background-color: rgba(199, 204, 241, 0.315);
+        width: 250px;
+        min-height: 180px;
+        padding: 20px;
+        margin-top: 30px;
+        text-align: center;
+        border-radius: 5px;
+        max-height: 100%;
+      }
+      .box li{
+        list-style: none;
+      }
+      #Cels {
+        border: none;
+        border-radius: 8px;
+        margin: 5px;
+        background-color: rgba(238, 221, 221, 0.068);
+       
+      }
+      #Faren {
+        border: none;
+        border-radius: 8px;
+        margin: 5px;
+        background-color: rgba(238, 221, 221, 0.068);
+      }
+      #Rest{
+        border: none;
+        border-radius: 8px;
+        margin: 5px;
+        background-color: rgba(238, 221, 221, 0.068);
+      }
+      #Cels:hover{
+        background-color: rgba(212, 176, 76, 0.527);
+      }
+      #Faren:hover{
+        background-color: rgba(212, 176, 76, 0.527);
+      }
+      #Rest:hover{
+        background-color: rgba(212, 176, 76, 0.527);
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function tocels() {
+        const temp = document.getElementById("temp").value;
+        let cel = (5 / 9) * (temp - 32);
+        const para = document.createElement("p");
+        para.innerText = "the result to Celsius:" + cel;
+        const dd = document.getElementById("answer");
+        dd.appendChild(para);
+      }
+    
+      function toFaren() {
+        const temp = document.getElementById("temp").value;
+        let fer = temp * (9 / 5) + 32;
+        const para = document.createElement("p");
+        para.innerText = "the result to Farenheight:" + fer;
+        const dd = document.getElementById("answer");
+        dd.appendChild(para);
+      }
+      function reset() {
+        document.getElementById("temp").value = "";
+        let a = document.getElementById("answer");
+        a.innerText = "";
+      }
+    </script>
+    <div class="box">
+      <li>Enter a Temperature:</li>
+      <input type="text" id="temp" />
+      <div><button id="Cels" class="btn" onclick="tocels()">Celsius</button></div>
+      <div><button id="Faren" class="btn" onclick="toFaren()">Farenheight</button></div>
+      <div><button id="Rest" class="btn" onclick="reset()">Reset</button></div>
+      <hr />
+      <div id="answer"></div>
+    </div>
+  </body>
+</html>
